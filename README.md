@@ -33,7 +33,7 @@ This project automates the process of capturing full-page screenshots from a lis
 **pdf_maker.py** - Combine screenshots into a PDF 
 **requirements.txt** - Python package dependencies
 
--
+---
 
 ## 📋 How to Use
 
@@ -63,14 +63,20 @@ This project automates the process of capturing full-page screenshots from a lis
 - Screenshots: part_1_2024-04-28_15-45-10.png, part_2_2024-04-28_15-45-30.png
 - PDF: https___example_com_2024-04-28_15-46-00.pdf
 
+---
+
 **💡 Use Cases**
 Legal evidence collection (e.g., trademark infringement)
 Web content archiving
 Automated website monitoring
 Report generation from dynamic web pages
 
+---
+
 **🙌 Contributions**
 Contributions are welcome! Feel free to fork this project or open issues for improvements.
+
+---
 
 **✉️ Contact**
 For any inquiries, feel free to reach out via GitHub or email.
