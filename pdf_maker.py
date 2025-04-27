@@ -1,12 +1,12 @@
-import os
-import img2pdf
-import re
+import os, re, img2pdf
 from datetime import datetime
+from log_config import get_logger
 
+logger = get_logger("pdf_maker", "app.log")
 
 def pdf_maker(screenshots_folder, pdf_files_folder):
     if os.path.isdir(screenshots_folder):
-        print(f"📂 Folder: {screenshots_folder}")
+        logger.info(f"📂 Folder: {screenshots_folder}")
 
         # Taking sorted screenshots list
         images = sorted(
@@ -15,7 +15,7 @@ def pdf_maker(screenshots_folder, pdf_files_folder):
         )
 
         if not images:
-            print("⚠️ Image not found.")
+            logger.warning("⚠️ Image not found.")
             return
 
         # Taking each screenshot with full path
@@ -29,7 +29,7 @@ def pdf_maker(screenshots_folder, pdf_files_folder):
 
         # Creating PDF 
         with open(pdf_file_name, "wb") as f:
-            print("📄 Creating PDF...")
+            logger.info("📄 Creating PDF...")
             f.write(img2pdf.convert(image_paths))
 
-        print(f"✅ PDF is ready: {pdf_file_name}\n")
+        logger.info(f"✅ PDF is ready: {pdf_file_name}\n")

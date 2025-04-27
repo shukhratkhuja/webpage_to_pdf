@@ -39,8 +39,8 @@ This project automates the process of capturing full-page screenshots from a lis
 
 1. **Clone the repository:**
    # bash
-   git clone https://github.com/shukhratkhuja/webpage_to_pdf.git
-   cd webpage_to_pdf
+   - git clone https://github.com/shukhratkhuja/webpage_to_pdf.git
+   - cd webpage_to_pdf
 
 2. **Install dependencies:**
 

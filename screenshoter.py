@@ -1,11 +1,13 @@
-import os, re, time
-from pdf_maker import pdf_maker
+import os, re
 from datetime import datetime
+from log_config import get_logger
+from pdf_maker import pdf_maker
 
+logger = get_logger("screenshoter", "app.log")
     
 def webpage_to_pdf(url, driver, screenshots_folder, pdf_files_folder):
 
-    print(f"🔗 URL: {url}")
+    logger.info(f"🔗 URL: {url}")
     driver.get(url)
 
     # Creating a folder based on URL
@@ -31,7 +33,7 @@ def webpage_to_pdf(url, driver, screenshots_folder, pdf_files_folder):
         screenshot_name = os.path.join(folder_path, f"part_{screenshot_count}_{timestamp}.png")
         
         driver.save_screenshot(screenshot_name)
-        print(f"✅ Saved: {screenshot_name}")
+        logger.info(f"✅ Saved: {screenshot_name}")
 
         scroll_position += (window_height - overlap)  # Scrolling with overlap
         driver.execute_script(f"window.scrollTo(0, {scroll_position});")

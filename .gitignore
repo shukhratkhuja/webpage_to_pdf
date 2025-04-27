@@ -2,3 +2,4 @@ __pycache__
 .venv*
 /pdf_files
 /screenshots
+.env
