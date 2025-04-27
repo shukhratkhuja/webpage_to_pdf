@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 ENV = os.getenv("ENV", "dev")
 
-LOG_DIR = "logs"
-os.makedirs(LOG_DIR, exist_ok=True)
+LOGS_DIR = "logs"
+os.makedirs(LOGS_DIR, exist_ok=True)
 
 
 class UppercaseFilter(logging.Filter):
@@ -27,7 +27,7 @@ def get_logger(name: str, log_file: str, level=logging.DEBUG):
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     # File handler
-    file_path = os.path.join(LOG_DIR, log_file)
+    file_path = os.path.join(LOGS_DIR, log_file)
     file_handler = logging.FileHandler(file_path)
     file_handler.setLevel(level)
     file_handler.setFormatter(formatter)

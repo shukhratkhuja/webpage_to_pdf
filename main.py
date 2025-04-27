@@ -2,7 +2,12 @@ import os
 import undetected_chromedriver as uc
 from selenium.webdriver.chrome.options import Options
 from screenshoter import webpage_to_pdf
+from dotenv import load_dotenv
 
+load_dotenv()
+
+
+HEADLESS = os.getenv("HEADLESS", "true").lower() == "true"
 # Screenshots main folder
 SCREENSHOTS_FOLDER = "screenshots"
 # Pdf files folder
@@ -17,7 +22,8 @@ def get_driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
     options.add_argument("--start-maximized")
-    options.add_argument("--headless")  # kerak bo‘lsa
+    if HEADLESS:
+        options.add_argument("--headless")  # if needed
 
     driver = uc.Chrome(options=options)
     return driver
